@@ -39,7 +39,7 @@
     <div class="container my-5">
         <h1>AR Library</h1>
         <hr>
-        <form>
+        <form id="libraryForm">
             <div class="row mb-3">
                 <label for="bookName" class="col-sm-2 col-form-label">Book Name</label>
                 <div class="col-sm-10">
@@ -56,19 +56,19 @@
                 <legend class="col-form-label col-sm-2 pt-0">Genre</legend>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="genre" id="Fiction" value="Fiction" checked>
+                        <input class="form-check-input" type="radio" name="genre" id="fiction" value="Fiction" checked>
                         <label class="form-check-label" for="Fiction">
                             Fiction
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="genre" id="Self-Help" value="Self-Help">
+                        <input class="form-check-input" type="radio" name="genre" id="self-help" value="Self-Help">
                         <label class="form-check-label" for="Self-Help">
                             Self-Help
                         </label>
                     </div>
                     <div class="form-check disabled">
-                        <input class="form-check-input" type="radio" name="genre" id="Non-Fiction" value="Non-Fiction">
+                        <input class="form-check-input" type="radio" name="genre" id="non-fiction" value="Non-Fiction">
                         <label class="form-check-label" for="Non-Fiction">
                             Non-Fiction
                         </label>
@@ -80,33 +80,16 @@
         </form>
 
         <div id="table">
+            <h3 class="my-5">Book Names</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Genre</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                <tbody id="tableBody">
                 </tbody>
             </table>
         </div>
