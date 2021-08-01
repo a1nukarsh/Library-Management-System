@@ -20,12 +20,33 @@ Display.prototype.add = function (book) {
             <td>${book.author}</td>
             <td>${book.genre}</td>
         </tr>`;
-    tableBody.innerHTML += uiString
+  tableBody.innerHTML += uiString;
 };
-
+// Implement the clear function
 Display.prototype.clear = function () {
   let libraryForm = document.getElementById("libraryForm");
   libraryForm.reset();
+};
+
+// Implement the validate function
+Display.prototype.validate = function (book) {
+  if (book.name.length < 2 || book.author.length < 2) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// Implemnt show function
+Display.prototype.show = function (type, displayMessage) {
+  let message = document.getElementById("msg");
+  message.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> ${displayMessage}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`;
+  setTimeout(() => {
+    message.innerHTML = "";
+  }, 2000);
 };
 
 // Add Submit event listener to form libraryForm
@@ -52,14 +73,16 @@ function libraryFormSubmit(e) {
   console.log(book);
 
   let display = new Display();
-  display.add(book);
-  display.clear();
-
-//   if(name==null){
-//       alert("Enter Book Name")
-//   }
-//   if(aurhor==null){
-//       alert("Enter Author Name")
-//   }
+  if (display.validate(book)) {
+    display.add(book);
+    display.clear();
+    display.show("success", "Your Book has been added successfully.");
+  } else {
+    //   show error to the user
+    display.show(
+      "danger",
+      "Sorry This book cannot be added, you should check some of those fields below."
+    );
+  }
   e.preventDefault();
 }
