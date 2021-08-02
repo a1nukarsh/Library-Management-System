@@ -1,5 +1,7 @@
 console.log("This is es6 version")
 
+// showBooks()
+
 class Book{
     constructor(name, author, genre) {
         this.name = name;
@@ -83,5 +85,8 @@ function libraryFormSubmit(e) {
       "Sorry This book cannot be added, you should check some of those fields below."
     );
   }
+  
   e.preventDefault();
 }
+
+
